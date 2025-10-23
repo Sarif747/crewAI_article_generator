@@ -1,15 +1,11 @@
 import os
 from crewai import Agent, Task, Crew, Process
-from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_openai import ChatOpenAI
 import streamlit as st
-from pydantic import BaseModel
 from dotenv import load_dotenv
 import re
 from langchain.tools import Tool
-from langchain_community.tools import DuckDuckGoSearchRun
 from crewai import Agent
-from crewai_tools import BrowserbaseLoadTool
 
 
 load_dotenv()
@@ -17,11 +13,6 @@ load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 if not api_key:
     raise ValueError("OPENAI_API_KEY not found. Please set it in your .env file.")
-
-# browser_api_key = os.getenv("BROWSERBASE_API_KEY")
-# browser_proj_id = os.getenv("BROWSERBASE_PROJECT_ID")
-
-# duckduckgo_tool = BrowserbaseLoadTool(browser_api_key,browser_proj_id)
 
 llm = ChatOpenAI(
     model="gpt-4o-mini",  
